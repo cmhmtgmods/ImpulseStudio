@@ -1125,11 +1125,11 @@
     }
     
     .main-nav {
-        display: none;
+        display: none !important;
     }
     
     .menu-toggle {
-        display: block;
+        display: block !important;
     }
     
     .language-switcher {
