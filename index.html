@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLM Studio | Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0a1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #7000ff;
+            border-radius: 50%;
+            margin-left: 2px;
+        }
+        p {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            color: #7b7b8e;
+        }
+        a {
+            color: #00d9ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #7000ff;
+        }
+        .loader {
+            margin: 30px 0;
+            width: 250px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+        }
+        .loader-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(135deg, #7000ff 0%, #8a3cff 100%);
+            animation: progress 2s ease forwards;
+        }
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+    </style>
+    <script>
+        // Detect user's preferred language
+        function detectLanguage() {
+            const lang = navigator.language || navigator.userLanguage;
+            if (lang.startsWith('ru')) return '/ru/';
+            if (lang.startsWith('bg')) return '/bg/';
+            return '/en/'; // Default to English
+        }
+        
+        // Redirect after a short delay
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                window.location.href = detectLanguage();
+            }, 2000); // 2 second delay for animation
+        });
+    </script>
+</head>
+<body>
+    <div class="logo">BLM<span class="dot"></span></div>
+    <p>Redirecting to the appropriate language version...</p>
+    <div class="loader">
+        <div class="loader-bar"></div>
+    </div>
+    <p>If you are not redirected automatically, please choose a language:</p>
+    <div>
+        <a href="/en/">English</a> | 
+        <a href="/ru/">Русский</a> | 
+        <a href="/bg/">Български</a>
+    </div>
+</body>
+</html>
